@@ -16,6 +16,7 @@
             <td>{{ item.name }}</td>
             <td>{{ item.surname }}</td>
             <td>{{ item.classs }}</td>
+            <td><a href="#">View detail</a></td>
           </tr>
         </tbody>
       </table>
@@ -182,7 +183,7 @@
             />
             <label class="form-check-label" for="exampleCheck1">Disabled</label>
           </div>
-          <button type="submit" class="btn btn-primary" (click)="onSubmit()">
+          <button type="submit" class="btn btn-primary" (click)="getData()">
             Submit
           </button>
         </form>
@@ -250,13 +251,7 @@
             />
           </div>
 
-          <button
-            type="submit"
-            class="btn btn-primary"
-            (click)="deleteData(name: this.namesurname: this.surname)"
-          >
-            Submit
-          </button>
+          
         </form>
                  
       </div>

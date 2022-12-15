@@ -23,8 +23,17 @@ export class MainComponent implements OnInit {
 
   ngOnInit() {}
 
+  displayStyle = 'none';
+  openPopup() {
+    this.displayStyle = 'block';
+  }
+  closePopup() {
+    this.displayStyle = 'none';
+  }
+
   //modal for adding
   getData(): any {
+    this.closePopup();
     return localStorage.getItem('students');
   }
   name: string;
@@ -65,27 +74,22 @@ export class MainComponent implements OnInit {
 
   data = JSON.parse(localStorage.getItem('students') || '{}');
 
-  displayStyle = 'none';
-  openPopup() {
-    this.displayStyle = 'block';
-  }
-  closePopup() {
-    this.displayStyle = 'none';
-  }
-
   //Deletion modal
-  
+
   deleteData(name: string, surname: string): void {
-    const students: student[] = JSON.parse(localStorage.getItem('students') || '[]');
+    const students: student[] = JSON.parse(
+      localStorage.getItem('students') || '[]'
+    );
     // find index of student with matching name and surname
-    const index = students.findIndex(s => s.name === name && s.surname === surname);
+    const index = students.findIndex(
+      (s) => s.name === name && s.surname === surname
+    );
     // remove student from array
     if (index !== -1) {
       students.splice(index, 1);
       localStorage.setItem('students', JSON.stringify(students));
     }
   }
-
 
   displayStyle1 = 'none';
 
