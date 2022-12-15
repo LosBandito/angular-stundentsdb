@@ -1,9 +1,10 @@
-import { Component, VERSION } from '@angular/core';
-import { HttpParams } from '@angular/common/http';
-import { FormBuilder, Validators } from '@angular/forms';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
-
+export type users = {
+  email: string;
+  password: string;
+};
 
 @Component({
   selector: 'my-app',
@@ -12,27 +13,36 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   constructor(private router: Router) {}
+  users = [{ username: 'Admin', password: 'admin' }];
 
-  loggedin = true;
-  loggedname = 'Jano333';
+  loggedin = false;
 
   loginstatus = '';
-
+  public loggedname = 'You are not currently logged in';
   //Register
   public email: string;
   public password: string;
 
   public onSubmit(): void {
-    console.log(this.email);
-    console.log(this.password);
+    localStorage.setItem(
+      'users',
+      JSON.stringify({ email: this.email, password: this.password })
+    );
   }
 
   //Login tests
   login() {
-    if (this.loggedin == true) {
+    // Check the entered username and password against the list of users
+    const user = this.users.find(
+      (u) => u.username === this.email && u.password === this.password
+    );
+    if (user) {
+      // Save the user to local storage
+      this.loggedin = true;
       this.router.navigate(['main']);
-    } else {
-      this.router.navigate(['']);
+      this.loggedname = 'You are logged in as Admin';
+
+      // Navigate to the protected area of the app
     }
   }
 
@@ -42,16 +52,6 @@ export class AppComponent {
     this.loggedname = 'You are not currently logged in';
     this.router.navigate(['']);
   }
-
-  //ngOnInit() {
-
-  //if (this.loggedin= false){
-  // this.loginstatus="You are not logged in"
-  //}
-  //  else if(this.loggedin=true){
-  //  this.loginstatus="You are logged as:"
-  //}
-  //}
 
   //Modal
   displayStyle = 'none';

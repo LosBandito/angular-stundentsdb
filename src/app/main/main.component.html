@@ -1,12 +1,204 @@
-<table *ngIf="headerRow" border="1">
-  <tr>
-    <td *ngFor="let header of headerRow">
-      <b>{{ header }}</b>
-    </td>
-  </tr>
-  <tr *ngFor="let row of csvData; let i = index">
-    <td *ngFor="let data of row; let j = index">
-      <span>{{ csvData[i][j] }}</span>
-    </td>
-  </tr>
-</table>
+<div class="card">
+  <div class="card-body">
+    <div class="card-title display-3">Welcome to the system</div>
+    <div class="card-text">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Surname</th>
+            <th scope="col">Class</th>
+            <th scope="col">Detail</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of student">
+            <td>{{ item.name }}</td>
+            <td><a href="#">Detail</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div
+        class="btn-group"
+        role="group"
+        aria-label="Basic example"
+        style="width=25%"
+      >
+        <button type="button" class="btn btn-success" (click)="openPopup()">
+          Add
+        </button>
+        <button type="button" class="btn btn-warning">Edit</button>
+        <button type="button" class="btn btn-danger">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Modal-->
+
+<div
+  class="modal"
+  tabindex="-1"
+  role="dialog"
+  [ngStyle]="{ display: displayStyle }"
+>
+    
+  <div class="modal-dialog" role="document">
+        
+    <div class="modal-content">
+            
+      <div class="modal-header">
+                
+        <h4 class="modal-title">Register a new user</h4>
+              
+      </div>
+            
+      <div class="modal-body">
+                
+        <form (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="exampleInputEmail1"> First name</label>
+
+            <input
+              [(ngModel)]="name"
+              name="name"
+              type="email"
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+              placeholder="Name"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="Surname">Surname</label>
+            <input
+              [(ngModel)]="surname"
+              type="surname"
+              name="surname"
+              class="form-control"
+              id="exampleInputPassword1"
+              placeholder="Password"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="Class">Class</label>
+            <input
+              [(ngModel)]="classs"
+              type="text"
+              name="classs"
+              class="form-control"
+              id="exampleInputPassword1"
+              placeholder="Class"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="Surname">Age</label>
+            <input
+              [(ngModel)]="age"
+              type="text"
+              name="age"
+              class="form-control"
+              id="exampleInputPassword1"
+              placeholder="Age"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="Surname">Age</label>
+            <input
+              [(ngModel)]="age"
+              type="date"
+              name="age"
+              class="form-control"
+              id="exampleInputPassword1"
+              placeholder="Age"
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Gender</label>
+            <br />
+            <select
+              name="gender"
+              id="exampleInputPassword1"
+              [(ngModel)]="gender"
+              name="gender"
+            >
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Specialization</label>
+            <br />
+            <select
+              name="specialization"
+              id="exampleInputPassword1"
+              [(ngModel)]="specialization"
+              name="specialization"
+            >
+              <option value="pdt">PDT</option>
+              <option value="sie">SIE</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="Average">Average</label>
+            <input
+              [(ngModel)]="average"
+              type="number"
+              name="average"
+              class="form-control"
+              id="exampleInputPassword1"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="Awards">Awards</label>
+            <input
+              [(ngModel)]="awards"
+              type="text"
+              name="awards"
+              class="form-control"
+              id="exampleInputPassword1"
+              placeholder="Type awards here"
+            />
+          </div>
+          <br />
+          <div class="form-check">
+            <input
+              [(ngModel)]="disabled"
+              type="checkbox"
+              class="form-check-input"
+              id="disabled"
+            />
+            <label class="form-check-label" for="exampleCheck1">Disabled</label>
+          </div>
+          <button type="submit" class="btn btn-primary" (click)="onSubmit()">
+            Submit
+          </button>
+        </form>
+
+                 
+      </div>
+            
+      <div class="modal-footer">
+                <button
+          type="button"
+          class="btn btn-outline-danger"
+          (click)="closePopup()"
+        >
+                    Close         
+        </button>
+              
+      </div>
+          
+    </div>
+      
+  </div>
+</div>
