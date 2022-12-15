@@ -1,0 +1,12 @@
+<table *ngIf="headerRow" border="1">
+  <tr>
+    <td *ngFor="let header of headerRow">
+      <b>{{ header }}</b>
+    </td>
+  </tr>
+  <tr *ngFor="let row of csvData; let i = index">
+    <td *ngFor="let data of row; let j = index">
+      <span>{{ csvData[i][j] }}</span>
+    </td>
+  </tr>
+</table>

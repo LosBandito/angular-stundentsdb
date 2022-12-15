@@ -1,0 +1,192 @@
+<!-- Navbar-->
+<!-- Image and text -->
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+    <img
+      src="https://cdn-icons-png.flaticon.com/512/2602/2602412.png"
+      width="30"
+      height="30"
+      class="d-inline-block align-top"
+      alt=""
+    />
+    School administration system
+  </a>
+</nav>
+<!-- Login menu-->
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-12 md">
+      <div class="card p-3">
+        <div class="card-body">
+          <h3 class="cart-title">Login to system</h3>
+          <div class="card-text">
+            <form>
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label"
+                  >Email address</label
+                >
+                <input
+                  type="email"
+                  class="form-control"
+                  id="exampleInputEmail1"
+                  aria-describedby="emailHelp"
+                />
+                <div id="emailHelp" class="form-text">
+                  We'll never share your email with anyone else.
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label"
+                  >Password</label
+                >
+                <input
+                  type="password"
+                  class="form-control"
+                  id="exampleInputPassword1"
+                />
+              </div>
+              <div class="mb-3 form-check">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  id="exampleCheck1"
+                />
+                <label class="form-check-label" for="exampleCheck1"
+                  >Check me out</label
+                >
+              </div>
+              <button type="submit" class="btn btn-primary" (click)="login()">
+                Submit
+              </button>
+              <br />
+
+              <div class="container">
+                <div class="row">
+                  <div class="col-6">
+                    <div class="card mt-3">
+                      <div class="card-body">
+                        <h4 class="card-title">Register now</h4>
+                        <div class="card-text">
+                          Register now to get access to stystem
+                        </div>
+                        <button
+                          class="btn btn-primary mt-2"
+                          (click)="openPopup()"
+                        >
+                          Register
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-6">
+                    <div class="card mt-3">
+                      <div class="card-body">
+                        <h4 class="card-title">Login status</h4>
+                        <div class="card-text">
+                          {{ loginstatus }} {{ loggedname }}
+                        </div>
+                        <button
+                          class="btn btn-outline-primary mt-1"
+                          (click)="logout()"
+                        >
+                          Log out
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Modla for register-->
+
+  <div
+    class="modal"
+    tabindex="-1"
+    role="dialog"
+    [ngStyle]="{ display: displayStyle }"
+  >
+      
+    <div class="modal-dialog" role="document">
+          
+      <div class="modal-content">
+              
+        <div class="modal-header">
+                  
+          <h4 class="modal-title">Register your account</h4>
+                
+        </div>
+              
+        <div class="modal-body">
+                  
+          <form (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input
+                [(ngModel)]="email"
+                name="email"
+                type="email"
+                class="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+                placeholder="Enter email"
+              />
+              <small id="emailHelp" class="form-text text-muted"
+                >We'll never share your email with anyone else.</small
+              >
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input
+                [(ngModel)]="password"
+                type="password"
+                name="password"
+                class="form-control"
+                id="exampleInputPassword1"
+                placeholder="Password"
+              />
+            </div>
+            <div class="form-check">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="exampleCheck1"
+              />
+              <label class="form-check-label" for="exampleCheck1"
+                >TOS Agreement</label
+              >
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+                   
+        </div>
+              
+        <div class="modal-footer">
+                  <button
+            type="button"
+            class="btn btn-outline-danger"
+            (click)="closePopup()"
+          >
+                      Close         
+          </button>
+                
+        </div>
+            
+      </div>
+        
+    </div>
+  </div>
+
+  <!-- After login -->
+  <div class="row mt-3">
+    <div class="col-12">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
