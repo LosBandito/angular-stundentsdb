@@ -20,9 +20,13 @@ export type student = {
 })
 export class MainComponent implements OnInit {
   constructor() {}
-  student: any[];
-  //modal for adding
 
+  ngOnInit() {}
+
+  //modal for adding
+  getData(): any {
+    return localStorage.getItem('students');
+  }
   name: string;
   surname: string;
   classs: string;
@@ -36,8 +40,8 @@ export class MainComponent implements OnInit {
   lastedit: string;
 
   onSubmit() {
-    const student = {
-      name: this.surname,
+    this.addData({
+      name: this.name,
       surname: this.surname,
       classs: this.classs,
       age: this.age,
@@ -48,14 +52,18 @@ export class MainComponent implements OnInit {
       disabled: this.disabled,
       awards: this.awards,
       lastedit: this.lastedit,
-    };
-
-    localStorage.setItem('student', JSON.stringify(student));
+    });
   }
 
-  ngOnInit() {
-    this.student = JSON.parse(localStorage.getItem('student'));
+  addData(student: student): void {
+    const students: student[] = JSON.parse(
+      localStorage.getItem('students') || '[]'
+    );
+    students.push(student);
+    localStorage.setItem('students', JSON.stringify(students));
   }
+
+  data = JSON.parse(localStorage.getItem('students') || '{}');
 
   displayStyle = 'none';
   openPopup() {
@@ -64,4 +72,28 @@ export class MainComponent implements OnInit {
   closePopup() {
     this.displayStyle = 'none';
   }
+
+  //Deletion modal
+  
+  deleteData(name: string, surname: string): void {
+    const students: student[] = JSON.parse(localStorage.getItem('students') || '[]');
+    // find index of student with matching name and surname
+    const index = students.findIndex(s => s.name === name && s.surname === surname);
+    // remove student from array
+    if (index !== -1) {
+      students.splice(index, 1);
+      localStorage.setItem('students', JSON.stringify(students));
+    }
+  }
+
+
+  displayStyle1 = 'none';
+
+  openPopup1() {
+    this.displayStyle1 = 'block';
+  }
+  closePopup1() {
+    this.displayStyle1 = 'none';
+  }
+  1;
 }

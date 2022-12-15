@@ -12,9 +12,10 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let item of student">
+          <tr *ngFor="let item of data">
             <td>{{ item.name }}</td>
-            <td><a href="#">Detail</a></td>
+            <td>{{ item.surname }}</td>
+            <td>{{ item.classs }}</td>
           </tr>
         </tbody>
       </table>
@@ -29,7 +30,9 @@
           Add
         </button>
         <button type="button" class="btn btn-warning">Edit</button>
-        <button type="button" class="btn btn-danger">Delete</button>
+        <button type="button" class="btn btn-danger" (click)="openPopup1()">
+          Delete
+        </button>
       </div>
     </div>
   </div>
@@ -192,6 +195,77 @@
           type="button"
           class="btn btn-outline-danger"
           (click)="closePopup()"
+        >
+                    Close         
+        </button>
+              
+      </div>
+          
+    </div>
+      
+  </div>
+</div>
+
+<!--Modal delete-->
+<div
+  class="modal"
+  tabindex="-1"
+  role="dialog"
+  [ngStyle]="{ display: displayStyle1 }"
+>
+    
+  <div class="modal-dialog" role="document">
+        
+    <div class="modal-content">
+            
+      <div class="modal-header">
+                
+        <h4 class="modal-title">Delete student</h4>
+              
+      </div>
+            
+      <div class="modal-body">
+                
+        <form>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Name</label>
+            <input
+              type="name"
+              class="form-control"
+              [(ngModel)]="name"
+              name="delnale"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+              placeholder="Enter surname"
+            />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Surname</label>
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="surname"
+              id="exampleInputPassword1"
+              placeholder="Enter name"
+            />
+          </div>
+
+          <button
+            type="submit"
+            class="btn btn-primary"
+            (click)="deleteData(name: this.namesurname: this.surname)"
+          >
+            Submit
+          </button>
+        </form>
+                 
+      </div>
+            
+      <div class="modal-footer">
+                <button
+          type="button"
+          class="btn btn-danger"
+          (click)="closePopup1()"
         >
                     Close         
         </button>
