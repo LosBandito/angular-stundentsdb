@@ -10,7 +10,7 @@ export type student = {
   average: string;
   disabled: boolean;
   awards: string;
-  lastedit: string;
+  lastedit: Date;
 };
 
 @Component({
@@ -32,6 +32,9 @@ export class MainComponent implements OnInit {
   }
 
   //modal for adding
+
+  lastEditDate: Date;
+
   getData(): any {
     this.closePopup();
     return localStorage.getItem('students');
@@ -46,7 +49,7 @@ export class MainComponent implements OnInit {
   average: string;
   disabled: boolean;
   awards: string;
-  lastedit: string;
+  lastedit: Date;
 
   onSubmit() {
     this.addData({
@@ -60,7 +63,7 @@ export class MainComponent implements OnInit {
       average: this.average,
       disabled: this.disabled,
       awards: this.awards,
-      lastedit: this.lastedit,
+      lastedit: (this.lastEditDate = new Date()),
     });
   }
 
@@ -80,7 +83,6 @@ export class MainComponent implements OnInit {
 
   selectStudent(student) {
     this.selectedStudent = student;
-
   }
   //Deletion modal
 
