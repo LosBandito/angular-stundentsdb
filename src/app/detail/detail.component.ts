@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-detail',
@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class DetailComponent implements OnInit {
   @Input() students: any;
-  constructor() {}
+  constructor(private cd: ChangeDetectorRef) {}
 
   deleteUser() {
     // Zobere item
@@ -22,6 +22,7 @@ export class DetailComponent implements OnInit {
     students.splice(index, 1);
     //vrati array
     localStorage.setItem('students', JSON.stringify(students));
+    this.cd.detectChanges();
   }
 
   ngOnInit() {}
