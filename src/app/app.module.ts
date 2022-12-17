@@ -6,10 +6,11 @@ import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
 import { MainComponent } from './main/main.component';
 import { AppRoutingModule } from '../app.routing.module';
+import { DetailComponent } from './detail/detail.component';
 
 @NgModule({
   imports: [BrowserModule, FormsModule, AppRoutingModule],
-  declarations: [AppComponent, HelloComponent, MainComponent],
+  declarations: [AppComponent, HelloComponent, MainComponent,DetailComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

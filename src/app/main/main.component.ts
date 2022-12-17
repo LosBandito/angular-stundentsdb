@@ -74,6 +74,14 @@ export class MainComponent implements OnInit {
 
   data = JSON.parse(localStorage.getItem('students') || '{}');
 
+  //Detail page
+
+  selectedStudent = null;
+
+  selectStudent(student) {
+    this.selectedStudent = student;
+
+  }
   //Deletion modal
 
   deleteData(name: string, surname: string): void {

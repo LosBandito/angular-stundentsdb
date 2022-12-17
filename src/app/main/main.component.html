@@ -12,11 +12,13 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let item of data">
-            <td>{{ item.name }}</td>
-            <td>{{ item.surname }}</td>
-            <td>{{ item.classs }}</td>
-            <td><a href="#">View detail</a></td>
+          <tr *ngFor="let student of data">
+            <td>{{ student.name }}</td>
+            <td>{{ student.surname }}</td>
+            <td>{{ student.classs }}</td>
+            <td>
+              <a href="#" (click)="selectStudent(student)">View detail</a>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -39,6 +41,7 @@
   </div>
 </div>
 
+<app-detail *ngIf="selectedStudent" [students]="selectedStudent"></app-detail>
 <!--Modal-->
 
 <div
@@ -250,8 +253,6 @@
               placeholder="Enter name"
             />
           </div>
-
-          
         </form>
                  
       </div>
