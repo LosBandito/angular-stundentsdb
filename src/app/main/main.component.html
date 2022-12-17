@@ -17,7 +17,9 @@
             <td>{{ student.surname }}</td>
             <td>{{ student.classs }}</td>
             <td>
-              <a href="#" (click)="selectStudent(student)">View detail</a>
+              <button (click)="selectStudent(student)" class="btn btn-primary">
+                View detail
+              </button>
             </td>
           </tr>
         </tbody>
