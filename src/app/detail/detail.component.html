@@ -1,8 +1,76 @@
 <div class="card">
   <div class="card-body">
     <h4 class="card-title">User detail</h4>
+    <!--Ak sa edituje-->
 
-    <div class="card-text">
+    <form *ngIf="isEditing" (ngSubmit)="onSubmit()">
+      <p>
+        <label>Name:</label>
+        <input type="text" [(ngModel)]="students.name" name="name" required />
+      </p>
+
+      <p>
+        <label>Surname:</label>
+        <input
+          type="text"
+          [(ngModel)]="students.surname"
+          name="surname"
+          required
+        />
+      </p>
+
+      <p>
+        <label>Class:</label>
+        <input
+          type="text"
+          [(ngModel)]="students.surname"
+          name="class"
+          required
+        />
+      </p>
+
+      <p>
+        <label>Age:</label>
+        <input type="text" [(ngModel)]="students.age" name="surname" required />
+      </p>
+
+      <p>
+        <label>DOB:</label>
+        <input
+          type="date"
+          [(ngModel)]="students.surname"
+          name="surname"
+          required
+        />
+      </p>
+
+      <p>
+        <label>Gender:</label>
+        <select
+          type="date"
+          [(ngModel)]="students.gender"
+          name="gender"
+          required
+        >
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+      </p>
+
+      <p>
+        <label>Specialization:</label>
+        <input
+          type="text"
+          [(ngModel)]="students.specialization"
+          name="class"
+          required
+        />
+      </p>
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    <div class="card-text" *ngIf="!isEditing">
       <p>Name: {{ students.name }}</p>
       <p>Surname: {{ students.surname }}</p>
       <p>Class: {{ students.classs }}</p>
@@ -14,8 +82,12 @@
       <p>Disabled: {{ students.disabled ? 'Yes' : 'No' }}</p>
       <p>Awards: {{ students.awards }}</p>
       <p>Last Edit: {{ students.lastedit }}</p>
+      <!-- other field values go here -->
     </div>
 
     <button class="btn btn-danger" (click)="deleteUser()">Delete user</button>
+    <button class="btn btn-secondary" (click)="isEditing = !isEditing">
+      Edit
+    </button>
   </div>
 </div>
