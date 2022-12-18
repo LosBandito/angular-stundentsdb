@@ -11,68 +11,38 @@
 
       <p>
         <label>Surname:</label>
-        <input
-          type="text"
-          [(ngModel)]="students.surname"
-          name="surname"
-          required
-        />
+        <input type="text" [(ngModel)]="students.surname" name="surname" />
       </p>
 
       <p>
         <label>Class:</label>
-        <input
-          type="text"
-          [(ngModel)]="students.surname"
-          name="class"
-          required
-        />
+        <input type="text" [(ngModel)]="students.classs" name="classs" />
       </p>
 
       <p>
         <label>Age:</label>
-        <input type="text" [(ngModel)]="students.age" name="surname" required />
+        <input type="text" [(ngModel)]="students.age" name="age" />
       </p>
 
       <p>
         <label>DOB:</label>
-        <input type="date" [(ngModel)]="students.dob" name="surname" required />
+        <input type="date" [(ngModel)]="students.dob" name="dob" />
       </p>
 
       <p>
         <label>Gender:</label>
-        <select
-          type="date"
-          [(ngModel)]="students.gender"
-          name="gender"
-          required
-        >
-          <option value="male">Male</option>
-          <option value="female">Female</option>
+        <select [(ngModel)]="students.gender" name="gender">
+          <option [value]="'male'">Male</option>
+          <option [value]="'female'">Female</option>
         </select>
       </p>
-
-      <p>
-        <label>Gender:</label>
-        <select
-          type="date"
-          [(ngModel)]="students.specialization"
-          name="specialization"
-          required
-        >
-          <option value="SIE">PDT</option>
-          <option value="SIE">SIE</option>
-        </select>
-      </p>
-
-      <div class="form-group"></div>
 
       <p>
         <label>Disabled</label>
         <input
           [(ngModel)]="students.disabled"
           type="checkbox"
-          name="class"
+          name="disabled"
           required
         />
       </p>
@@ -87,7 +57,9 @@
         />
       </p>
 
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-primary" (click)="onSubmit()">
+        Submit
+      </button>
     </form>
 
     <div class="card-text" *ngIf="!isEditing">
