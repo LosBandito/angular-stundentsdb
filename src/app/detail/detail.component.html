@@ -62,6 +62,35 @@
         />
       </p>
 
+      <p>
+        <label>Average:</label>
+        <input
+          type="number"
+          [(ngModel)]="students.average"
+          name="class"
+          required
+        />
+      </p>
+
+      <p>
+        <input
+          [(ngModel)]="students.disabled"
+          type="checkbox"
+          name="class"
+          required
+        />
+      </p>
+
+      <p>
+        <label>Awards:</label>
+        <input
+          type="text"
+          [(ngModel)]="students.awards"
+          name="class"
+          required
+        />
+      </p>
+
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 
