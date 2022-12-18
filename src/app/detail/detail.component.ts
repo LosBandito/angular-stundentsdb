@@ -29,5 +29,18 @@ export class DetailComponent implements OnInit {
 
   ngOnInit() {}
 
-  onSubmit() {}
+  onSubmit() {
+    
+    let studentsString = localStorage.getItem('students');
+    let students = JSON.parse(studentsString);
+    let index = students.findIndex(
+      (student) =>
+        student.name === this.students.name &&
+        student.surname === this.students.surname
+    );
+
+    students[index] = this.students;
+
+    localStorage.setItem('students', JSON.stringify(students));
+  }
 }

@@ -53,24 +53,19 @@
       </p>
 
       <p>
-        <label>Specialization:</label>
-        <input
-          type="text"
+        <label>Gender:</label>
+        <select
+          type="date"
           [(ngModel)]="students.specialization"
-          name="class"
+          name="specialization"
           required
-        />
+        >
+          <option value="SIE">PDT</option>
+          <option value="SIE">SIE</option>
+        </select>
       </p>
 
-      <p>
-        <label>Average:</label>
-        <input
-          type="number"
-          [(ngModel)]="students.average"
-          name="class"
-          required
-        />
-      </p>
+      <div class="form-group"></div>
 
       <p>
         <label>Disabled</label>
