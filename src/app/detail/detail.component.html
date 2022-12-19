@@ -7,22 +7,14 @@
       <!--Kriticke pre vyhladavanie a editovanie-->
 
       <p>Name: {{ students.name }}</p>
-      <p>
-        <label>Surname:</label>
-        <input
-          type="text"
-          [(ngModel)]="students.name"
-          name="surname"
-          required
-        />
-      </p>
+      <p>Surname: {{ students.surname }}</p>
 
       <p>
         <label>Class:</label>
         <input
           type="text"
           [(ngModel)]="students.classs"
-          name="class"
+          name="classs"
           required
         />
       </p>
@@ -76,6 +68,16 @@
       </p>
 
       <p>
+        <label>Average:</label>
+        <input
+          type="number"
+          [(ngModel)]="students.average"
+          name="class"
+          required
+        />
+      </p>
+
+      <p>
         <label>Awards:</label>
         <input
           type="text"
@@ -100,7 +102,6 @@
       <p>Disabled: {{ students.disabled ? 'Yes' : 'No' }}</p>
       <p>Awards: {{ students.awards }}</p>
       <p>Last Edit: {{ students.lastedit }}</p>
-      <!-- other field values go here -->
     </div>
 
     <button class="btn btn-danger" (click)="deleteUser()">Delete user</button>

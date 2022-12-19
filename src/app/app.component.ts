@@ -32,17 +32,17 @@ export class AppComponent {
 
   //Login tests
   login() {
-    // Check the entered username and password against the list of users
+
     const user = this.users.find(
       (u) => u.username === this.email && u.password === this.password
     );
     if (user) {
-      // Save the user to local storage
+
       this.loggedin = true;
       this.router.navigate(['main']);
       this.loggedname = 'You are logged in as Admin';
 
-      // Navigate to the protected area of the app
+ 
     }
   }
 
