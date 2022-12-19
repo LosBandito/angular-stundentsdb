@@ -4,16 +4,14 @@
     <!--Ak sa edituje-->
 
     <form *ngIf="isEditing" (ngSubmit)="onSubmit()">
-      <p>
-        <label>Name:</label>
-        <input type="text" [(ngModel)]="students.name" name="name" required />
-      </p>
+      <!--Kriticke pre vyhladavanie a editovanie-->
 
+      <p>Name: {{ students.name }}</p>
       <p>
         <label>Surname:</label>
         <input
           type="text"
-          [(ngModel)]="students.surname"
+          [(ngModel)]="students.name"
           name="surname"
           required
         />
@@ -23,7 +21,7 @@
         <label>Class:</label>
         <input
           type="text"
-          [(ngModel)]="students.surname"
+          [(ngModel)]="students.classs"
           name="class"
           required
         />
