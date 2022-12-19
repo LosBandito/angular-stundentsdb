@@ -1,5 +1,11 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import {
+  CanActivate,
+  ActivatedRouteSnapshot,
+  RouterStateSnapshot,
+  Router,
+} from '@angular/router';
+import { Observable } from 'rxjs';
 
 export type users = {
   email: string;
@@ -30,19 +36,18 @@ export class AppComponent {
     );
   }
 
+
+
+  
   //Login tests
   login() {
-
     const user = this.users.find(
       (u) => u.username === this.email && u.password === this.password
     );
     if (user) {
-
       this.loggedin = true;
       this.router.navigate(['main']);
       this.loggedname = 'You are logged in as Admin';
-
- 
     }
   }
 
