@@ -36,15 +36,13 @@ export class AppComponent {
     );
   }
 
-
-
-  
   //Login tests
   login() {
     const user = this.users.find(
       (u) => u.username === this.email && u.password === this.password
     );
     if (user) {
+      console.log('click');
       this.loggedin = true;
       this.router.navigate(['main']);
       this.loggedname = 'You are logged in as Admin';
