@@ -41,6 +41,7 @@ export class DetailComponent implements OnInit {
     students[index] = this.students;
     students[index].name = this.students.name;
     students[index].surname = this.students.surname;
+    students[index].lastedit = new Date();
 
     localStorage.setItem('students', JSON.stringify(students));
   }

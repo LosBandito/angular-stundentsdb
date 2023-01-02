@@ -90,7 +90,7 @@ export class MainComponent implements OnInit {
     const students: student[] = JSON.parse(
       localStorage.getItem('students') || '[]'
     );
-    // find index of student with matching name and surname
+
     const index = students.findIndex(
       (s) => s.name === name && s.surname === surname
     );
