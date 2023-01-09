@@ -11,12 +11,10 @@
 
       <p>
         <label>Class:</label>
-        <input
-          type="text"
-          [(ngModel)]="students.classs"
-          name="classs"
-          required
-        />
+        <select type="date" [(ngModel)]="students.classs" name="class" required>
+          <option value="2A">II.A</option>
+          <option value="2B">II.B</option>
+        </select>
       </p>
 
       <p>
@@ -50,7 +48,7 @@
           name="specialization"
           required
         >
-          <option value="SIE">PDT</option>
+          <option value="PDT">PDT</option>
           <option value="SIE">SIE</option>
         </select>
       </p>

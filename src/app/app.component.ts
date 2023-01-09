@@ -42,10 +42,9 @@ export class AppComponent {
       (u) => u.username === this.email && u.password === this.password
     );
     if (user) {
-      console.log('click');
       this.loggedin = true;
-      this.router.navigate(['main']);
       this.loggedname = 'You are logged in as Admin';
+      this.router.navigate(['main']);
     }
   }
 
