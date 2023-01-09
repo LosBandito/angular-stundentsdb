@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Injectable } from '@angular/core';
 import {
   CanActivate,
   ActivatedRouteSnapshot,
@@ -17,6 +17,11 @@ export type users = {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
+@Injectable({
+  providedIn: 'root',
+})
+
+
 export class AppComponent {
   constructor(private router: Router) {}
   users = [{ username: 'Admin', password: 'admin' }];
@@ -36,7 +41,6 @@ export class AppComponent {
     );
   }
 
-  //Login tests
   login() {
     const user = this.users.find(
       (u) => u.username === this.email && u.password === this.password
@@ -47,7 +51,6 @@ export class AppComponent {
       this.router.navigate(['main']);
     }
   }
-
   //Logou button
   logout() {
     this.loggedin = false;
