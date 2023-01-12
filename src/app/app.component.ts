@@ -6,6 +6,7 @@ import {
   Router,
 } from '@angular/router';
 import { Observable } from 'rxjs';
+import { AuthService } from '../auth.service';
 
 export type users = {
   email: string;
@@ -18,7 +19,7 @@ export type users = {
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private authService: AuthService) {}
   users = [{ username: 'Admin', password: 'admin' }];
 
   loggedin = false;
@@ -42,7 +43,7 @@ export class AppComponent {
       (u) => u.username === this.email && u.password === this.password
     );
     if (user) {
-      this.loggedin = true;
+      this.authService.login();
       this.loggedname = 'You are logged in as Admin';
       this.router.navigate(['main']);
     }
@@ -50,7 +51,7 @@ export class AppComponent {
 
   //Logou button
   logout() {
-    this.loggedin = false;
+    this.authService.logOut();
     this.loggedname = 'You are not currently logged in';
     this.router.navigate(['']);
   }
