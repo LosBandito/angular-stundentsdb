@@ -46,6 +46,8 @@ export class AppComponent {
       this.authService.login();
       this.loggedname = 'You are logged in as Admin';
       this.router.navigate(['main']);
+    } else {
+      alert('Password or login is incorrect');
     }
   }
 
