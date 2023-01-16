@@ -36,6 +36,20 @@ export class MainComponent implements OnInit {
   lastEditDate: Date;
 
   getData(): any {
+    if (
+      !this.name ||
+      !this.surname ||
+      !this.classs ||
+      !this.age ||
+      !this.dob ||
+      !this.gender ||
+      !this.specialization ||
+      !this.average ||
+      !this.awards
+    ) {
+      alert('All fields are mandatory!');
+      return;
+    }
     this.closePopup();
     return localStorage.getItem('students');
   }
