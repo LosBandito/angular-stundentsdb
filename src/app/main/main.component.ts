@@ -36,20 +36,6 @@ export class MainComponent implements OnInit {
   lastEditDate: Date;
 
   getData(): any {
-    if (
-      !this.name ||
-      !this.surname ||
-      !this.classs ||
-      !this.age ||
-      !this.dob ||
-      !this.gender ||
-      !this.specialization ||
-      !this.average ||
-      !this.awards
-    ) {
-      alert('All fields are mandatory!');
-      return;
-    }
     this.closePopup();
     return localStorage.getItem('students');
   }
@@ -65,6 +51,28 @@ export class MainComponent implements OnInit {
   awards: string;
   lastedit: Date;
 
+  control() {
+    if (
+      !this.name ||
+      !this.surname ||
+      !this.classs ||
+      !this.age ||
+      !this.dob ||
+      !this.gender ||
+      !this.specialization ||
+      !this.average
+    ) {
+      alert('Please fill in all fields!');
+      this.prazdna();
+    } 
+    else {
+      this.getData();
+    }
+  }
+
+  prazdna(): void {
+    return;
+  }
   onSubmit() {
     this.addData({
       name: this.name,
