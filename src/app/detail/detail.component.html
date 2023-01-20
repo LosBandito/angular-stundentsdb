@@ -11,7 +11,7 @@
 
       <p>
         <label>Class:</label>
-        <select [(ngModel)]="students.classs" name="class" required>
+        <select [(ngModel)]="students.class" name="class" required>
           <option value="2A">II.A</option>
           <option value="2B">II.B</option>
         </select>
@@ -61,14 +61,7 @@
 
       <p>
         <label>Average:</label>
-        <input
-          type="number"
-          min="0"
-          max="5"
-          [(ngModel)]="students.average"
-          name="class"
-          required
-        />
+        <input type="text" [(ngModel)]="students.average" name="average" />
       </p>
 
       <p>
