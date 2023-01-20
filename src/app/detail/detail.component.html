@@ -11,7 +11,7 @@
 
       <p>
         <label>Class:</label>
-        <select type="date" [(ngModel)]="students.classs" name="class" required>
+        <select [(ngModel)]="students.classs" name="class" required>
           <option value="2A">II.A</option>
           <option value="2B">II.B</option>
         </select>
@@ -29,12 +29,7 @@
 
       <p>
         <label>Gender:</label>
-        <select
-          type="date"
-          [(ngModel)]="students.gender"
-          name="gender"
-          required
-        >
+        <select [(ngModel)]="students.gender" name="gender" required>
           <option value="male">Male</option>
           <option value="female">Female</option>
         </select>
@@ -43,13 +38,12 @@
       <p>
         <label>Specialization:</label>
         <select
-          type="date"
           [(ngModel)]="students.specialization"
           name="specialization"
           required
         >
-          <option value="PDT">PDT</option>
-          <option value="SIE">SIE</option>
+          <option value="pdt">pdt</option>
+          <option value="sie">SIE</option>
         </select>
       </p>
 

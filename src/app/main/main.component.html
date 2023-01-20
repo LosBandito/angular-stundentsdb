@@ -61,7 +61,7 @@
             
       <div class="modal-body">
                 
-        <form (ngSubmit)="onSubmit()">
+        <form (ngSubmit)="control()">
           <div class="form-group">
             <label for="exampleInputEmail1"> First name</label>
 
@@ -196,9 +196,7 @@
             />
             <label class="form-check-label" for="exampleCheck1">Disabled</label>
           </div>
-          <button type="submit" class="btn btn-primary" (click)="control()">
-            Submit
-          </button>
+          <button  type="submit" class="btn btn-primary">Submit</button>
         </form>
 
                  

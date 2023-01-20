@@ -53,26 +53,26 @@ export class MainComponent implements OnInit {
 
   control() {
     if (
-      !this.name ||
-      !this.surname ||
-      !this.classs ||
-      !this.age ||
-      !this.dob ||
-      !this.gender ||
-      !this.specialization ||
-      !this.average
+      this.name &&
+      this.surname &&
+      this.classs &&
+      this.age &&
+      this.dob &&
+      this.gender &&
+      this.specialization &&
+      this.average
     ) {
+      this.onSubmit();
+    } else {
       alert('Please fill in all fields!');
       this.prazdna();
-    } 
-    else {
-      this.getData();
     }
   }
 
   prazdna(): void {
     return;
   }
+
   onSubmit() {
     this.addData({
       name: this.name,
